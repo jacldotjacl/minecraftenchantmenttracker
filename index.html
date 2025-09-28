@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Minecraft Enchantments Tracker</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header class="site-header">
+    <h1>Minecraft Enchantments Tracker</h1>
+    <p class="subtitle">Know everything. Track everything. Run a perfect trading hall.</p>
+  </header>
+
+  <main class="container">
+    <section class="controls">
+      <div class="search-filter">
+        <label for="search" class="label">Search</label>
+        <input type="text" id="search" placeholder="Search enchantments (e.g., Sharpness, bow, incompatible)"/>
+      </div>
+
+      <div class="filters">
+        <span class="filter-label">Filter categories:</span>
+        <div class="filter-group" id="categoryFilters">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="markAll" class="btn primary">Mark all as acquired</button>
+        <button id="clearAll" class="btn danger">Clear checklist</button>
+        <button id="exportData" class="btn">Export</button>
+        <button id="importData" class="btn">Import</button>
+        <input type="file" id="importFile" accept="application/json" style="display:none"/>
+      </div>
+    </section>
+
+    <section class="progress">
+      <div class="progress-row">
+        <div class="progress-text">
+          <strong>Progress:</strong> <span id="progressCount">0</span>/<span id="totalCount">0</span> acquired
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill" style="width:0%"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="list" id="enchantmentList">
+        <!-- Cards populated by JS -->
+      </div>
+
+      <aside class="info" id="infoPanel">
+        <div class="info-inner">
+          <h2 id="infoTitle">Select an enchantment</h2>
+          <p id="infoSubtitle" class="muted">Click a card to see details: items, max level, use cases, and incompatibilities.</p>
+
+          <div class="info-details" id="infoDetails" style="display:none;">
+            <div class="info-section">
+              <h3>Overview</h3>
+              <ul class="info-list">
+                <li><strong>Name:</strong> <span id="dName"></span></li>
+                <li><strong>Category:</strong> <span id="dCategory"></span></li>
+                <li><strong>Displayed level:</strong> <span id="dLevel"></span></li>
+              </ul>
+            </div>
+
+            <div class="info-section">
+              <h3>Applicable items</h3>
+              <ul class="chip-list" id="dItems"></ul>
+            </div>
+
+            <div class="info-section">
+              <h3>Use cases</h3>
+              <ul class="bullet-list" id="dUse"></ul>
+            </div>
+
+            <div class="info-section">
+              <h3>Incompatibilities</h3>
+              <ul class="chip-list danger" id="dIncompat"></ul>
+            </div>
+
+            <div class="info-section">
+              <h3>Notes</h3>
+              <ul class="bullet-list" id="dNotes"></ul>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-row">
+      <span>Built for trading halls and trophy runs.</span>
+      <span>Local-only data. Export to share or backup.</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
