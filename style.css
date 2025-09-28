@@ -232,6 +232,13 @@ html,body{
 .bullet-list{
   list-style:disc; margin:0 0 0 18px; padding:0;
 }
+.card img.enchant-gif {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  object-fit: cover;
+  margin-right: 8px;
+}
 .footer-row{
   display:flex; justify-content:space-between; gap:12px;
   padding:20px; color:var(--muted); border-top:1px solid var(--border);
